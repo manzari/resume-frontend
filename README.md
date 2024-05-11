@@ -1,5 +1,5 @@
 # resume-frontend
-This is a React frontend for my [resume backend](https://github.com/manzari/resume).
+This is a React frontend for my [resume backend](https://github.com/manzari/resume-backend).
 
 ## Develop
 Start the docker container used for development and execute the start script to bring up the development server.
