@@ -1,0 +1,247 @@
+.section-header {
+  @include section_border;
+  margin-bottom: 1.5rem;
+
+  h2 {
+    @include sans;
+    font-weight: 900;
+    font-size: 1.75rem;
+    letter-spacing: -.05rem;
+    margin: 0;
+  }
+}
+
+.icon-link > svg {
+  color: $white;
+  background: $lightgray;
+  padding: .17em;
+  width: 50px; /** fix width ***/
+  text-align: center;
+  display: inline;
+  border-radius: 50%;
+  line-height: 50px; /** for vertical center - if needed **/
+  &:hover {
+    @include transition(all .2s ease);
+    color: $darkergray;
+  }
+}
+
+
+.title-bar {
+  @include section_border;
+  margin-top: 2rem;
+  padding: .4rem 0;
+  @include clearfix;
+
+  .header-title {
+    @include sans;
+    font-weight: 300;
+    font-size: 1.75rem;
+    line-height: 2rem;
+    letter-spacing: -.05rem;
+    text-align: center;
+    margin: 0 0 .5rem;
+
+    @include media_larger_than_mobile {
+      float: left;
+      margin: 0;
+    }
+  }
+}
+
+.page-header {
+  padding: 1.5rem 0;
+
+  .avatar {
+    width: 95px;
+    max-width: 100%;
+    overflow: hidden;
+    @include border-radius(100px);
+    margin: 0 auto;
+    display: block;
+  }
+
+  .header-name {
+    @include sans;
+    font-size: 3rem;
+    font-weight: 900;
+    text-align: center;
+    letter-spacing: -.15rem;
+    line-height: 1;
+    margin: 1rem 0 0;
+  }
+
+  .header-contact-info {
+    color: inherit;
+    text-align: center;
+    font-size: 1.125rem;
+  }
+}
+
+.icon-links {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+  top: 4px;
+  text-align: center;
+  border-top: 2px solid $lightgray;
+  padding-top: .1rem;
+
+  @include media_larger_than_mobile {
+    float: right;
+    border-top: none;
+    padding-top: 0;
+  }
+
+  .icon-link-item {
+    display: inline-block;
+    margin-left: 5px;
+  }
+
+  .icon-link {
+    display: inline-block;
+
+    &:hover .icon path {
+      fill: $darkergray;
+      @include transition(all .2s ease);
+    }
+  }
+
+  svg {
+    height: 32px;
+    width: 32px;
+  }
+}
+
+.content-section {
+  margin: 0 0 3rem;
+
+  .resume-item-heading,
+  .resume-item-heading-link {
+    @include sans_bold;
+    margin: 0 0 .75rem;
+    font-size: 1.5rem;
+    letter-spacing: -.05rem;
+    line-height: 1;
+    text-decoration: none;
+    color: $almostblack
+
+  }
+
+  .resume-item-heading-link {
+    &:hover {
+      color: $darkergray;
+      @include transition(all .2s ease);
+    }
+  }
+
+  .resume-item-details,
+  .resume-item-organisation,
+  .resume-item-organisation-link {
+    font-size: 1rem;
+    margin: 0 0 .5rem;
+    line-height: 1;
+
+    &.award-title {
+      font-size: 1rem;
+    }
+  }
+
+  .resume-item-link-list {
+    a {
+      color: $darkgray;
+      text-decoration: none;
+      border-bottom: 1px solid;
+
+      &:hover {
+        @include transition(all .2s ease);
+        color: $darkergray;
+      }
+    }
+  }
+
+  .resume-item-description {
+    margin: .75rem 0 0;
+  }
+
+  .resume-item-title {
+    @include sans_bold;
+    margin: 0 0 .5rem;
+    font-size: 1.5rem;
+    letter-spacing: -.05rem;
+    line-height: 1;
+  }
+
+  .resume-chrono-item-title {
+    @include sans_half_bold;
+    margin: 0 0 .5rem;
+    font-size: 1.25rem;
+    letter-spacing: -.05rem;
+    line-height: 1;
+  }
+
+
+  .resume-item-period-field {
+    white-space: nowrap;
+    padding-right: 1rem;
+  }
+
+  .resume-item-period {
+    @include sans;
+    margin: 0 0 .75rem;
+    font-size: 1.2rem;
+    letter-spacing: -.06rem;
+    line-height: 1;
+    white-space: nowrap
+  }
+
+  .resume-item-organisation-link {
+    color: $darkgray;
+    text-decoration: none;
+    border-bottom: none;
+
+    &:hover {
+      @include transition(all .2s ease);
+      border-bottom: 1px solid;
+      color: $darkergray;
+    }
+  }
+
+  .resume-item-file {
+    margin: 0 1rem .1rem;
+    font-size: 0.9rem;
+    color: $darkishgray;
+
+    &:hover {
+      @include transition(all .2s ease);
+      color: $darkergray;
+    }
+  }
+
+  .resume-item-last {
+    padding-bottom: 1.5rem;
+  }
+
+  .resume-chrono-item-last {
+    padding-bottom: 1rem;
+  }
+}
+
+.page-footer {
+  border-top: 4px solid $lightgray;
+  padding-top: 1.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+
+  .footer-line {
+    margin: 0;
+    font-size: .875rem;
+    color: $darkgray;
+
+    > a {
+      font-weight: 700;
+      color: $darkgray;
+    }
+  }
+}

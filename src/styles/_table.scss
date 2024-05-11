@@ -1,0 +1,26 @@
+.entity-table-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.entity-table {
+  border-top: solid 1px $gray;
+  border-left: solid 1px $gray;
+  border-right: solid 1px $gray;
+  border-bottom: solid px $gray;
+}
+
+.entity-table-th-header {
+  background: $almostwhite;
+  border-bottom: solid 3px $darkergray;
+  color: $almostblack;
+  font-weight: bold;
+}
+
+.entity-table-th {
+  padding: 10px;
+  border: solid 1px $gray;
+  background: $almostwhite;
+}

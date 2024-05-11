@@ -1,0 +1,184 @@
+.login-page,
+.files-page,
+.users-page {
+  padding: 1.5rem 0;
+  display: block;
+
+  .header-name {
+    @include sans;
+    font-size: 3rem;
+    font-weight: 900;
+    text-align: center;
+    letter-spacing: -.15rem;
+    line-height: 1;
+    margin: 1rem 0 0;
+  }
+
+  .summary {
+    @include media_larger_than_mobile {
+      font-size: 1.125rem;
+    }
+  }
+}
+
+.login-box,
+.login-field,
+.register-field,
+.register-box {
+  margin: 1.5rem auto;
+  width: 280px;
+}
+
+.login-field,
+.register-field,
+.otp-field,
+.register-otp-field {
+  @include border-radius(3px);
+  background-color: $almostwhite;
+  text-decoration: none;
+  display: block;
+  @include sans_light;
+  color: $darkgray;
+  line-height: 55px;
+  margin: auto;
+}
+
+.login-field,
+.register-field {
+  text-align: left;
+  padding-left: 1rem;
+  font-size: 1.7rem;
+}
+
+.login-field {
+  margin-top: 1.5rem;
+}
+
+.register-field {
+  margin-bottom: 1rem;
+}
+
+.otp-field,
+.register-otp-field {
+  text-align: center;
+  margin: auto;
+  font-size: 2rem;
+  width: 2.5rem !important;
+  @include transition(all .2s ease);
+}
+
+.register-otp-field {
+  margin-top: 0;
+}
+
+.otp-separator,
+.otp-separator-register  {
+  @include sans_light;
+  text-decoration: solid;
+  color: $darkgray;
+  font-size: 2rem;
+  line-height: 55px;
+}
+
+.otp-separator-register  {
+  margin-top: 0;
+}
+
+.admin-toolbar {
+  @include border-radius(8px);
+  display: flex;
+  background: $almostwhite;
+}
+
+.admin-toolbar-button,
+.login-button,
+.register-button,
+.request-button,
+.contact-button {
+  @include border-radius(3px);
+  text-decoration: none;
+  text-align: center;
+  @include sans_light;
+  background-color: $almostwhite;
+  color: $almostblack;
+  @include transition(all .2s ease);
+  border: 0;
+}
+
+.admin-toolbar-button {
+  margin: 0.2rem 1rem 0.2rem 1rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+
+  &:hover {
+    background-color: $almostblack;
+    color: $gray;
+  }
+
+  &:disabled {
+    color: $darkergray;
+    background-color: $almostwhite;
+  }
+}
+
+.login-button,
+.register-button,
+.request-button,
+.contact-button {
+  display: block;
+  margin: 1.5rem auto;
+  padding: 0;
+  width: 280px;
+  font-size: 1.375rem;
+  line-height: 55px;
+
+  &:hover {
+    background-color: $gray;
+    color: $almostblack;
+  }
+
+  &:disabled {
+    color: $darkergray;
+    background-color: $almostwhite;
+  }
+
+  &.not-looking {
+    width: 400px;
+  }
+}
+
+.otp-status-failure {
+  border-color: $red;
+}
+
+.login-warning {
+  text-align: center;
+  color: $red;
+}
+
+.entity-table-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.entity-table {
+  border-top: solid 1px $gray;
+  border-left: solid 1px $gray;
+  border-right: solid 1px $gray;
+  border-bottom: solid px $gray;
+}
+
+.entity-table-th-header {
+  background: $almostwhite;
+  border-bottom: solid 3px $darkergray;
+  color: $almostblack;
+  font-weight: bold;
+}
+
+.entity-table-th {
+  padding: 10px;
+  border: solid 1px $gray;
+  background: $almostwhite;
+}

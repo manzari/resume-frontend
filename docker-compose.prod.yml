@@ -1,0 +1,11 @@
+services:
+  resume_frontend:
+    image: manzari/resume-frontend
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: resume_frontend
+    ports:
+      - '8080:80'
+    env_file:
+      - resume.prod.env

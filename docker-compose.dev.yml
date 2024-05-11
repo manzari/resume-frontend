@@ -1,0 +1,13 @@
+services:
+  resume_frontend_dev:
+    image: node:lts-alpine
+    container_name: resume_frontend_dev
+    working_dir: /app
+    command: npm start
+    ports:
+      - 3000:3000
+    volumes:
+      - ./:/app
+    stdin_open: true
+    env_file:
+      - resume.dev.env
