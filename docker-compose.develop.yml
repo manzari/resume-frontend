@@ -1,0 +1,14 @@
+version: '3.5'
+services:
+  resume_frontend_dev:
+    image: node:12-alpine
+    container_name: resume_frontend_dev
+    working_dir: /app
+    command: tail -f /dev/null
+    ports:
+      - 3000:3000
+    volumes:
+      - ./:/app
+    stdin_open: true
+    environment:
+      REACT_APP_API_URL: http://127.0.0.1:8080
