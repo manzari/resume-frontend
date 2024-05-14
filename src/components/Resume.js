@@ -7,13 +7,14 @@ import {useMediaQuery} from 'react-responsive';
 import {useAuthContext} from "./useAuth";
 import LinkSection from "./resume/section/LinkSection";
 import TextSection from "./resume/section/TextSection";
+import {getEnv} from "./getEnv";
 
 function Resume(props) {
     const isMobile = useMediaQuery({query: `(max-width: 760px)`});
     const {token} = useAuthContext();
     const setResumeData = props.setResumeData;
 
-    const fetchResumeData = useCallback(() => fetch(process.env.REACT_APP_API_URL + '/resume/1', {
+    const fetchResumeData = useCallback(() => fetch(getEnv('API_URL') + '/resume/1', {
         headers: {
             Authorization: "Bearer " + token
         }

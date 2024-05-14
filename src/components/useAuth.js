@@ -1,7 +1,8 @@
 import * as React from "react";
 import {useCallback, useEffect, useState} from "react";
 import {jwtDecode} from "jwt-decode";
-import {getSHA256Hash} from "./useHash";
+import {getSHA256Hash} from "./getHash";
+import {getEnv} from "./getEnv";
 
 const authContext = React.createContext();
 const storageKey = 'ResumeToken';
@@ -32,7 +33,7 @@ function useAuth() {
 
 
     async function performLoginRequest(username, otp) {
-        return fetch(process.env.REACT_APP_API_URL + '/login', {
+        return fetch(getEnv('API_URL') + '/login', {
             method: "post",
             headers: {
                 'Accept': 'application/json',

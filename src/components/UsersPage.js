@@ -5,7 +5,8 @@ import {useAuthContext} from "./useAuth";
 import {ImExit} from "react-icons/im";
 import {useNavigate} from "react-router-dom";
 import OtpInput from "react-otp-input";
-import {getSHA256Hash} from "./useHash";
+import {getSHA256Hash} from "./getHash";
+import {getEnv} from "./getEnv";
 
 function UsersPage() {
     const [users, setUsers] = useState([{id: 1, name: "test", actions: "delete"}]);
@@ -20,7 +21,7 @@ function UsersPage() {
     const navigate = useNavigate();
 
     const fetchUsersData = useCallback(() =>
-        fetch(process.env.REACT_APP_API_URL + '/users', {
+        fetch(getEnv('API_URL') + '/users', {
             headers: {
                 Authorization: "Bearer " + token
             }
@@ -53,7 +54,7 @@ function UsersPage() {
 
     function registerUser(userData) {
         setMessage('Registering...')
-        fetch(process.env.REACT_APP_API_URL + '/register', {
+        fetch(getEnv('API_URL') + '/register', {
             method: 'POST',
             body: JSON.stringify(userData),
             headers: {

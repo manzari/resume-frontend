@@ -1,5 +1,6 @@
 import React, {useCallback, useEffect, useState} from "react";
 import {useAuthContext} from "../useAuth";
+import {getEnv} from "../getEnv";
 
 export default function FetchImg(props) {
     const [img, setImg] = useState('');
@@ -7,7 +8,7 @@ export default function FetchImg(props) {
     const filename = props.filename;
 
     const fetchImage = useCallback(() =>
-        fetch(process.env.REACT_APP_API_URL + '/file/' + filename, {
+        fetch(getEnv('API_URL') + '/file/' + filename, {
             headers: {
                 Authorization: "Bearer " + token
             }

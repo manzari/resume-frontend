@@ -2,11 +2,12 @@ import React, {useCallback, useMemo} from "react";
 import {useTable} from 'react-table'
 import {FaTrash} from "react-icons/fa";
 import {useAuthContext} from "./useAuth";
+import {getEnv} from "./getEnv";
 
 function UsersTable(props) {
     const {token} = useAuthContext();
     const deleteUser = useCallback((id) => {
-        fetch(process.env.REACT_APP_API_URL + '/user/' + id, {
+        fetch(getEnv('API_URL') + '/user/' + id, {
             method: 'DELETE',
             headers: {
                 Authorization: "Bearer " + token,

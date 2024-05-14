@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import ReactJson from "react-json-view";
 import {useAuthContext} from "./useAuth";
 import {useNavigate} from "react-router-dom";
+import {getEnv} from "./getEnv";
 
 function AdminPanel(props) {
     const [saveButtonText, setSaveButtonText] = useState('Save');
@@ -10,7 +11,7 @@ function AdminPanel(props) {
 
     function patchResumeData() {
         setSaveButtonText("Saving...")
-        fetch(process.env.REACT_APP_API_URL + '/resume/' + props.resumeData.id, {
+        fetch(getEnv('API_URL') + '/resume/' + props.resumeData.id, {
             method: 'PATCH',
             body: JSON.stringify(props.resumeData),
             headers: {

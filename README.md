@@ -2,13 +2,9 @@
 This is a React frontend for my [resume backend](https://github.com/manzari/resume-backend).
 
 ## Develop
-Start the docker container used for development and execute the start script to bring up the development server.
-There are many approaches to do so, find an example below.
 ```bash
-docker-compose -f docker-compose.develop.yml up -d \
- && docker exec -it resume_frontend_dev ash
-npm start
+docker-compose -f docker-compose.dev.yml up
 ```
 
 ## Deploy
-Eventually modify `docker-compose.prod.yml` and run `docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d`.
+Eventually modify `resume.prod.env` and run `docker-compose -f docker-compose.prod.yml up -d`.
