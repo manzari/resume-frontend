@@ -2,7 +2,6 @@ import React, {useCallback, useEffect, useState} from "react";
 import OtpInput from 'react-otp-input';
 import {useNavigate, useParams} from "react-router-dom";
 import {useAuthContext} from "./useAuth";
-import {getEnv} from "./getEnv";
 
 function LoginPage() {
     const otpLength = 6;
