@@ -3,7 +3,7 @@ services:
     image: manzari/resume-frontend
     build:
       context: .
-      dockerfile: docker/Dockerfile
+      dockerfile: Dockerfile
     container_name: resume_frontend
     ports:
       - '8080:80'
