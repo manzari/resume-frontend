@@ -67,7 +67,7 @@ function LoginPage() {
                 <button disabled={(otp.length < otpLength)} className="login-button no-print" onClick={performLogin}>
                     {lastLoginStatus === 'failure' ? "Retry" : "Login"}
                 </button>
-                <a href="mailto:contact@manzari.me?subject=Request to access your CV&body=Hello, please send me a magic link."
+                <a href="mailto:contact@manzari.dev?subject=Request to access your CV&body=Hello, please send me a magic link."
                    className="request-button no-print">Request a link</a>
             </header>
         </div>
