@@ -10,6 +10,8 @@ RUN npm run build
 FROM nginx:alpine
 COPY --from=buildstage /app/build /usr/share/nginx/html
 
+COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
+
 COPY docker/nginx-entrypoint.sh /
 RUN chmod +x nginx-entrypoint.sh
 ENTRYPOINT ["/nginx-entrypoint.sh"]
