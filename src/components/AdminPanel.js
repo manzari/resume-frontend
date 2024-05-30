@@ -33,7 +33,6 @@ function AdminPanel(props) {
 
     async function handlePaste() {
         let clipboard = await window.navigator.clipboard.readText();
-        console.log(clipboard)
         props.setResumeData(JSON.parse(clipboard))
     }
 

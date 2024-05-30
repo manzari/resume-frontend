@@ -4,7 +4,7 @@ COPY public /app/public
 COPY src /app/src
 COPY package.json /app/package.json
 COPY package-lock.json /app/package-lock.json
-RUN npm install --legacy-peer-deps --production
+RUN npm install --legacy-peer-deps --omit=dev
 RUN npm run build
 
 FROM nginx:alpine
