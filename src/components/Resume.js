@@ -21,7 +21,6 @@ function Resume(props) {
     })
         .then((response) => response.json()), [token]);
 
-
     useEffect(() => {
         fetchResumeData().then((data) => {
             setResumeData(data);
@@ -74,37 +73,36 @@ function Resume(props) {
             return;
         }
         let sections = content.sections.map((section, sectionIndex) => {
-            switch (true) {
-                case section.hasOwnProperty('links'):
-                    return section.links.map(
-                        (links, index) => (
-                            <LinkSection kkey={sectionIndex + '- links-' + index}
-                                         title={links.title}
-                                         links={links.links}/>)
-                    )
-                case section.hasOwnProperty('text'):
-                    return section.text.map(
-                        (text, index) => (
-                            <TextSection kkey={sectionIndex + '-texts-' + index} items={text.items}/>
-                        )
-                    )
-                case section.hasOwnProperty('time'):
-                    return section.time.map(
-                        (time, index) => (
-                            <Section kkey={sectionIndex + '-time-' + index} title={time.title}>
-                                <ChronologicalItems kkey={sectionIndex + '-time-i-' + index} items={time.items}
-                                                    isMobile={isMobile}/>
-                            </Section>
-                        )
-                    )
+            if (!section.hasOwnProperty('type')
+                || !section.hasOwnProperty('items')
+                || !section.hasOwnProperty('title')
+                || !section.hasOwnProperty('order')
+            ) {
+                return
+            }
+            section.items.sort((a, b) => a.order - b.order);
+            switch (section.type) {
+                case 'links':
+                    return <LinkSection kkey={sectionIndex + '- links-' + section.order}
+                                        title={section.title}
+                                        links={section.items}/>
+                case 'text':
+                    return <TextSection kkey={sectionIndex + '-texts-' + section.order}
+                                        title={section.title}
+                                        items={section.items}/>
+                case 'time':
+                    return <Section kkey={sectionIndex + '-time-' + section.order}
+                                    title={section.title}>
+                        <ChronologicalItems kkey={sectionIndex + '-time-i-' + section.order}
+                                            items={section.items}
+                                            isMobile={isMobile}/>
+                    </Section>
                 default:
-                    return '';
+                    return
             }
         })
-        return sections.map((section, index) => {
-            section.key = 'section-' + index;
-            return section;
-        })
+
+        return sections.sort((a, b) => a.order - b.order);
     }
 }
 
