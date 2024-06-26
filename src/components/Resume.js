@@ -42,7 +42,6 @@ function Resume(props) {
             return (<Header toggleAdminPanel={props.toggleAdminPanel}/>);
         }
         return (<Header
-            avatarLink={content.person.avatar ?? ''}
             fullName={content.person.fullName}
             jobTitle={content.person.jobTitle}
             summary={content.person.summary ?? ''}
