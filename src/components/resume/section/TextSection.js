@@ -15,6 +15,7 @@ function TextSection(props) {
                                 short={item.short ?? ''}
                                 kkey={props.kkey + '-' + index}
                                 key={props.kkey + '-' + index}
+                                link={item.link}
                             />
                         )
                     })
