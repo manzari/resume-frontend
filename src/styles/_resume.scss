@@ -12,54 +12,35 @@
 }
 
 .icon-link > svg {
-  color: #ffffff;
-  background: #c7c7c7;
+  color: $white;
+  background: $lightgray;
   padding: .17em;
-  width:50px; /** fix width ***/
+  width: 50px; /** fix width ***/
   text-align: center;
   display: inline;
   border-radius: 50%;
-  line-height: 50px;  /** for vertical center - if needed **/
+  line-height: 50px; /** for vertical center - if needed **/
 }
 
-.login-page {
-  padding: 1.5rem 0;
 
-  .header-name {
+.title-bar {
+  @include section_border;
+  margin-top: 2rem;
+  padding: .4rem 0;
+  @include clearfix;
+
+  .header-title {
     @include sans;
-    font-size: 3rem;
-    font-weight: 900;
+    font-weight: 300;
+    font-size: 1.75rem;
+    line-height: 2rem;
+    letter-spacing: -.05rem;
     text-align: center;
-    letter-spacing: -.15rem;
-    line-height: 1;
-    margin: 1rem 0 0;
-  }
+    margin: 0 0 .5rem;
 
-  .title-bar {
-    @include section_border;
-    margin-top: 2rem;
-    padding: .4rem 0;
-    @include clearfix;
-
-    .header-title {
-      @include sans;
-      font-weight: 300;
-      font-size: 1.75rem;
-      line-height: 2rem;
-      letter-spacing: -.05rem;
-      text-align: center;
-      margin: 0 0 .5rem;
-
-      @include media_larger_than_mobile {
-        float: left;
-        margin: 0;
-      }
-    }
-  }
-
-  .summary {
     @include media_larger_than_mobile {
-      font-size: 1.125rem;
+      float: left;
+      margin: 0;
     }
   }
 }
@@ -95,28 +76,6 @@
     color: inherit;
   }
 
-  .title-bar {
-    @include section_border;
-    margin-top: 2rem;
-    padding: .4rem 0;
-    @include clearfix;
-
-    .header-title {
-      @include sans;
-      font-weight: 300;
-      font-size: 1.75rem;
-      line-height: 2rem;
-      letter-spacing: -.05rem;
-      text-align: center;
-      margin: 0 0 .5rem;
-
-      @include media_larger_than_mobile {
-        float: left;
-        margin: 0;
-      }
-    }
-  }
-
   .executive-summary {
     @include media_larger_than_mobile {
       font-size: 1.125rem;
@@ -131,7 +90,7 @@
   position: relative;
   top: 4px;
   text-align: center;
-  border-top: 2px solid #c7c7c7;
+  border-top: 2px solid $lightgray;
   padding-top: .1rem;
 
   @include media_larger_than_mobile {
@@ -149,7 +108,7 @@
     display: inline-block;
 
     &:hover .icon path {
-      fill: #333;
+      fill: $darkgray;
       @include transition(all .2s ease);
     }
   }
@@ -159,151 +118,6 @@
     width: 32px;
   }
 }
-
-.login-box {
-  margin: 1.5rem auto;
-  width: 280px;
-}
-
-.login-field {
-  margin: 1.5rem auto;
-  width: 280px;
-  @include border-radius(3px);
-  background-color: #dddddd;
-  text-decoration: none;
-  text-align: left;
-  padding-left: 1rem;
-  display: block;
-  font-size: 1.7rem;
-  @include sans_light;
-  color: #333;
-  line-height: 55px;
-}
-
-.register-field {
-  margin: 0 1.5rem 0;
-  @include border-radius(3px);
-  background-color: #dddddd;
-  text-decoration: none;
-  text-align: left;
-  padding-left: 1rem;
-  display: block;
-  font-size: 1.7rem;
-  @include sans_light;
-  color: #333;
-  line-height: 55px;
-}
-
-.otp-field {
-  @include border-radius(3px);
-  background-color: #dddddd;
-  text-decoration: none;
-  text-align: center;
-  display: block;
-  margin: auto;
-  font-size: 2rem;
-  @include sans_light;
-  color: #333;
-  line-height: 55px;
-  width: 2.5rem !important;
-  @include transition(all .2s ease);
-}
-
-.register-otp-field {
-  @include border-radius(3px);
-  background-color: #dddddd;
-  text-decoration: none;
-  text-align: center;
-  display: block;
-  margin: auto;
-  font-size: 2rem;
-  @include sans_light;
-  color: #333;
-  line-height: 55px;
-  @include transition(all .2s ease);
-}
-
-.otp-separator {
-  @include sans_light;
-  text-decoration: solid;
-  color: #333;
-  font-size: 2rem;
-  line-height: 55px;
-}
-
-.admin-toolbar {
-  @include border-radius(8px);
-  display: flex;
-  background: #ececec;
-}
-
-.admin-toolbar-button{
-  @include border-radius(3px);
-  text-decoration: none;
-  text-align: center;
-  margin: 0.2rem 1rem 0.2rem 1rem;
-  padding: 0.5rem;
-  border: 0;
-  font-size: 1rem;
-  @include sans_light;
-  background-color: #dddddd;
-  color: #252525;
-  @include transition(all .2s ease);
-
-  &:hover {
-    background-color: #252525;;
-    color: #a5a5a5;
-  }
-
-  &:disabled {
-    color: #939393;
-    background-color: #efefef;
-  }
-}
-
-.login-button,
-.request-button,
-.contact-button {
-  @include border-radius(3px);
-  text-decoration: none;
-  text-align: center;
-  display: block;
-  margin: 1.5rem auto;
-  padding: 0;
-  border: 0;
-  width: 280px;
-  font-size: 1.375rem;
-  @include sans_light;
-  background-color: #dddddd;
-  color: #252525;
-  line-height: 55px;
-  @include transition(all .2s ease);
-
-  &:hover {
-    background-color: #252525;;
-    color: #a5a5a5;
-  }
-
-  &:disabled {
-    color: #939393;
-    background-color: #efefef;
-  }
-
-  &.not-looking {
-    width: 400px;
-  }
-}
-
-.otp-status-failure {
-  border-color: red;
-}
-
-.login-warning {
-  text-align: center;
-  color: red;
-}
-
-// resume content styles
 
 .content-section {
   margin: 0 0 3rem;
@@ -315,6 +129,15 @@
     font-size: 1.5rem;
     letter-spacing: -.05rem;
     line-height: 1;
+    text-decoration: none;
+    color: $black
+  }
+
+  .resume-item-heading-link {
+    &:hover {
+      fill: $darkergray;
+      @include transition(all .2s ease);
+    }
   }
 
   .resume-item-details,
@@ -331,12 +154,12 @@
 
   .resume-item-link-list {
     a {
-      color: #333;
+      color: $darkgray;
       text-decoration: none;
       border-bottom: 1px solid;
 
       &:hover {
-        color: #9c9c9c;
+        color: $darkergray;
       }
     }
   }
@@ -368,13 +191,13 @@
   }
 
   .resume-item-organisation-link {
-    color: #333;
+    color: $darkgray;
     text-decoration: none;
     border-bottom: none;
 
     &:hover {
       border-bottom: 1px solid;
-      color: #9c9c9c;
+      color: $darkergray;
     }
   }
 
@@ -383,10 +206,8 @@
   }
 }
 
-// footer styles
-
 .page-footer {
-  border-top: 4px solid #c7c7c7;
+  border-top: 4px solid $lightgray;
   padding-top: 1.5rem;
   text-align: center;
   margin-bottom: 3rem;
@@ -394,71 +215,11 @@
   .footer-line {
     margin: 0;
     font-size: .875rem;
-    color: #999;
+    color: $darkergray;
 
     > a {
       font-weight: 700;
-      color: #333;
+      color: $darkgray;
     }
   }
 }
-
-.print-only {
-  display: none !important
-}
-
-@media print {
-  .no-print {
-    display: none !important
-  }
-  .print-only {
-    display: block !important
-  }
-  body {
-    font-size: 12px;
-    line-height: 1rem;
-  }
-  .page-header {
-    padding: 1rem 0 .2rem;
-
-    .header-name {
-      @include sans_bold;
-      font-size: 2rem;
-      margin: 0 0 .2rem;
-    }
-  }
-  .section-header {
-    @include section_border_thin;
-    margin-bottom: 1rem;
-
-    h2 {
-      font-size: 1.2rem;
-      line-height: 1.5rem;
-    }
-  }
-  .content-section {
-    margin: 0 0 1rem;
-
-    .resume-item {
-      margin-bottom: 1rem;
-    }
-
-    .resume-item-title {
-      font-size: 16px;
-      line-height: .7em;
-    }
-
-    .resume-item-details {
-      font-size: 12px;
-      margin: 0 0 .75rem;
-      line-height: .7em;
-      font-style: italic;
-
-      &.award-title {
-        font-size: 11px;
-      }
-    }
-  }
-
-}
-
