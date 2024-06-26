@@ -89,66 +89,63 @@ function UsersPage() {
         </ul>
 
     return (
-        <div className="wrapper">
-            <header className="login-page no-print">
-                <h1 className="header-name no-print">CV Manzari</h1>
-                <div className="title-bar no-print">
-                    <h2 className="header-title">Manage Users</h2>
-                    {leaveButton()}
-                </div>
-                <h2 className="header-title">Add User</h2>
-                <div className="login-page">
-                    <label>Name</label>
-                    <input className={"register-field no-print"}
+        <div className="wrapper users-page">
+            <h1 className="header-name">CV Manzari</h1>
+            <div className="title-bar">
+                <h2 className="header-title">Manage Users</h2>
+                {leaveButton()}
+            </div>
+            <h2 className="header-title">Add User</h2>
+            <div className="register-box">
+                <label>Name</label>
+                <input className={"register-field"}
+                       type="text"
+                       value={name}
+                       onChange={(e) => setName(e.target.value)}/>
+                <label>IsAdmin</label>&nbsp;<input className={"register-field"}
+                                                   type="checkbox"
+                                                   checked={isAdmin}
+                                                   onChange={(e) => setAdmin(!isAdmin)}/>
+                {isAdmin ? <>
+                    <label>Username</label>
+                    <input className={"register-field"}
                            type="text"
-                           value={name}
-                           onChange={(e) => setName(e.target.value)}/>
-                    <label>IsAdmin</label>
-                    <input className={"register-field no-print"}
-                           type="checkbox"
-                           checked={isAdmin}
-                           onChange={(e) => setAdmin(!isAdmin)}/>
-                    {isAdmin ? <>
-                        <label>Username</label>
-                        <input className={"register-field no-print"}
-                               type="text"
-                               value={username}
-                               disabled={!isAdmin}
-                               onChange={(e) => setUsername(e.target.value)}/>
-                        <label>Password</label>
-                        <input
-                            className={"register-field no-print"}
-                            type="password"
-                            value={password}
-                            disabled={!isAdmin}
-                            onChange={(e) => setPassword(e.target.value)}/>
-                    </> : null}
-                    {!isAdmin ? <>
-                        <label>OTP</label>
-                        <OtpInput
-                            value={otp}
-                            onChange={(change) => setOtp(change.toUpperCase())}
-                            numInputs={otpLength}
-                            shouldAutoFocus={true}
-                            inputStyle={"register-otp-field no-print"}
-                            renderSeparator={(index) => {
-                                if ((index + 1) === otpLength / 2) {
-                                    return <p className="otp-separator">-</p>;
-                                }
-                            }}
-                            renderInput={
-                                (props) => {
-                                    return <input {...props}/>
-                                }
+                           value={username}
+                           disabled={!isAdmin}
+                           onChange={(e) => setUsername(e.target.value)}/>
+                    <label>Password</label>
+                    <input
+                        className={"register-field"}
+                        type="password"
+                        value={password}
+                        disabled={!isAdmin}
+                        onChange={(e) => setPassword(e.target.value)}/>
+                </> : null}
+                {!isAdmin ? <>
+                    <label>OTP</label>
+                    <OtpInput
+                        value={otp}
+                        onChange={(change) => setOtp(change.toUpperCase())}
+                        numInputs={otpLength}
+                        shouldAutoFocus={true}
+                        inputStyle={"register-otp-field"}
+                        renderSeparator={(index) => {
+                            if ((index + 1) === otpLength / 2) {
+                                return <p className="otp-separator-register">-</p>;
                             }
-                        />
-                    </> : null}
-                    <button onClick={handleRegisterButton}>Register</button>
-                    <p>{message}</p>
-                </div>
-                <h2 className="header-title">Edit Users</h2>
-                <UsersTable fetchUsersData={fetchUsersData} users={users}/>
-            </header>
+                        }}
+                        renderInput={
+                            (props) => {
+                                return <input {...props}/>
+                            }
+                        }
+                    />
+                </> : null}
+                <button className="register-button" onClick={handleRegisterButton}>Register</button>
+            </div>
+            <p>{message}</p>
+            <h2 className="header-title">Edit Users</h2>
+            <UsersTable fetchUsersData={fetchUsersData} users={users}/>
         </div>
     );
 }

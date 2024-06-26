@@ -17,12 +17,22 @@ function UsersTable(props) {
 
     }, [token]);
 
+    function trimUsername(username) {
+        if (!username) {
+            return null;
+        }
+        if (username.length < 48) {
+            return username
+        }
+        return username.slice(0, 48 - 3) + '...';
+    }
+
     const data = useMemo(() => props.users.map(
         (user) => {
             return {
                 id: user.id,
                 name: user.name,
-                username: user.username,
+                username: trimUsername(user.username),
                 role: user.role,
                 actions: (<FaTrash onClick={() => deleteUser(user.id)}/>)
             }
@@ -44,50 +54,43 @@ function UsersTable(props) {
     } = useTable({columns, data})
 
     return (
-        <table {...getTableProps()} style={{border: 'solid 1px blue'}}>
-            <thead>
-            {headerGroups.map(headerGroup => (
-                <tr {...headerGroup.getHeaderGroupProps()}>
-                    {headerGroup.headers.map(column => (
-                        <th
-                            {...column.getHeaderProps()}
-                            style={{
-                                borderBottom: 'solid 3px red',
-                                background: 'aliceblue',
-                                color: 'black',
-                                fontWeight: 'bold',
-                            }}
-                        >
-                            {column.render('Header')}
-                        </th>
-                    ))}
-                </tr>
-            ))}
-            </thead>
-            <tbody {...getTableBodyProps()}>
-            {rows.map(row => {
-                prepareRow(row)
-                return (
-                    <tr {...row.getRowProps()}>
-                        {row.cells.map(cell => {
-                            return (
-                                <td
-                                    {...cell.getCellProps()}
-                                    style={{
-                                        padding: '10px',
-                                        border: 'solid 1px gray',
-                                        background: 'papayawhip',
-                                    }}
-                                >
-                                    {cell.render('Cell')}
-                                </td>
-                            )
-                        })}
+        <div className="entity-table-wrapper">
+            <table {...getTableProps()} className="entity-table">
+                <thead>
+                {headerGroups.map(headerGroup => (
+                    <tr {...headerGroup.getHeaderGroupProps()}>
+                        {headerGroup.headers.map(column => (
+                            <th
+                                {...column.getHeaderProps()}
+                                className="entity-table-th-header"
+                            >
+                                {column.render('Header')}
+                            </th>
+                        ))}
                     </tr>
-                )
-            })}
-            </tbody>
-        </table>
+                ))}
+                </thead>
+                <tbody {...getTableBodyProps()}>
+                {rows.map(row => {
+                    prepareRow(row)
+                    return (
+                        <tr {...row.getRowProps()}>
+                            {row.cells.map(cell => {
+                                return (
+                                    <td
+                                        {...cell.getCellProps()}
+                                        className="entity-table-th"
+                                    >
+                                        {cell.render('Cell')}
+                                    </td>
+                                )
+                            })}
+                        </tr>
+                    )
+                })}
+                </tbody>
+            </table>
+        </div>
     )
 }
 
