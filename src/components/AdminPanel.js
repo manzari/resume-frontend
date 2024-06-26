@@ -55,6 +55,11 @@ function AdminPanel(props) {
                     Manage Users
                 </button>
                 <button
+                    onClick={() => navigate('/files')}
+                    className={'admin-toolbar-button'}>
+                    Manage Files
+                </button>
+                <button
                     className={'admin-toolbar-button'}
                     onClick={props.toggleAdminPanel}>
                     Close

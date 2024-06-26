@@ -7,6 +7,7 @@ import {AuthProvider} from "./useAuth";
 import AdminLoginPage from "./AdminLoginPage";
 import ResumePage from "./ResumePage";
 import UsersPage from "./UsersPage";
+import FilesPage from "./FilesPage";
 
 function App() {
     return (
@@ -23,6 +24,11 @@ function App() {
                     <Route path="/users" element={
                         <RequireAuth roles={['ADMIN']} loginUrl="/admin-login">
                             <UsersPage/>
+                        </RequireAuth>
+                    }/>
+                    <Route path="/files" element={
+                        <RequireAuth roles={['ADMIN']} loginUrl="/admin-login">
+                            <FilesPage/>
                         </RequireAuth>
                     }/>
                     <Route path="/admin-login" element={<AdminLoginPage/>}/>
