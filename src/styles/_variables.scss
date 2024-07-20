@@ -5,18 +5,20 @@ $container-width: 980px !default;
 $grid-gutter: 10px !default;
 
 // Colors
-$black: #333;
+$black: #000;
 $almostblack: #252525;
 $darkgray: #333;
+$darkishgray: #505050;
 $darkergray: #939393;
 $gray: #a5a5a5;
 $lightgray: #c7c7c7;
 $almostwhite: #dddddd;
 $white: #fff;
 $red: #FF0000FF;
+$yellow: #ff0;
 
 // Styles
-$text_color: $black;
+$text_color: $almostblack;
 
 // Font stack
 $body-font: Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol" !default;

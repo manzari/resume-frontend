@@ -20,6 +20,10 @@
   display: inline;
   border-radius: 50%;
   line-height: 50px; /** for vertical center - if needed **/
+  &:hover {
+    @include transition(all .2s ease);
+    color: $darkergray;
+  }
 }
 
 
@@ -68,18 +72,9 @@
   }
 
   .header-contact-info {
-    @include sans;
-    text-align: center;
-  }
-
-  .header-contact-info p a {
     color: inherit;
-  }
-
-  .executive-summary {
-    @include media_larger_than_mobile {
-      font-size: 1.125rem;
-    }
+    text-align: center;
+    font-size: 1.125rem;
   }
 }
 
@@ -108,7 +103,7 @@
     display: inline-block;
 
     &:hover .icon path {
-      fill: $darkgray;
+      fill: $darkergray;
       @include transition(all .2s ease);
     }
   }
@@ -130,12 +125,13 @@
     letter-spacing: -.05rem;
     line-height: 1;
     text-decoration: none;
-    color: $black
+    color: $almostblack
+
   }
 
   .resume-item-heading-link {
     &:hover {
-      fill: $darkergray;
+      color: $darkergray;
       @include transition(all .2s ease);
     }
   }
@@ -143,8 +139,8 @@
   .resume-item-details,
   .resume-item-organisation,
   .resume-item-organisation-link {
-    font-size: 1.125rem;
-    margin: 0 0 .75rem;
+    font-size: 1rem;
+    margin: 0 0 .5rem;
     line-height: 1;
 
     &.award-title {
@@ -159,6 +155,7 @@
       border-bottom: 1px solid;
 
       &:hover {
+        @include transition(all .2s ease);
         color: $darkergray;
       }
     }
@@ -170,11 +167,20 @@
 
   .resume-item-title {
     @include sans_bold;
-    margin: 0 0 .75rem;
+    margin: 0 0 .5rem;
     font-size: 1.5rem;
     letter-spacing: -.05rem;
     line-height: 1;
   }
+
+  .resume-chrono-item-title {
+    @include sans_half_bold;
+    margin: 0 0 .5rem;
+    font-size: 1.25rem;
+    letter-spacing: -.05rem;
+    line-height: 1;
+  }
+
 
   .resume-item-period-field {
     white-space: nowrap;
@@ -196,13 +202,29 @@
     border-bottom: none;
 
     &:hover {
+      @include transition(all .2s ease);
       border-bottom: 1px solid;
+      color: $darkergray;
+    }
+  }
+
+  .resume-item-file {
+    margin: 0 1rem .1rem;
+    font-size: 0.9rem;
+    color: $darkishgray;
+
+    &:hover {
+      @include transition(all .2s ease);
       color: $darkergray;
     }
   }
 
   .resume-item-last {
     padding-bottom: 1.5rem;
+  }
+
+  .resume-chrono-item-last {
+    padding-bottom: 1rem;
   }
 }
 
@@ -215,7 +237,7 @@
   .footer-line {
     margin: 0;
     font-size: .875rem;
-    color: $darkergray;
+    color: $darkgray;
 
     > a {
       font-weight: 700;

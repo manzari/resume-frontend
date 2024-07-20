@@ -1,55 +1,27 @@
 import React from 'react';
+import Files from "./Files";
 
 function ChronologicalItems(props) {
-    if (props.isMobile === true) {
-        return props.items.map(function (item, index) {
-            return (
-                <div className="resume-item" key={props.kkey + '-item-chrono-mob-' + index}>
-                    <table>
-                        <tbody>
-                        <tr>
-                            <td className="resume-item-period-field"><p className="resume-item-period">{item.period}</p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><p className="resume-item-title" itemProp="title">{item.title}</p></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                {
-                                    item.hasOwnProperty('orglink')
-                                        ? <a className="resume-item-organisation-link"
-                                             href={item.orglink}
-                                             target="_blank"
-                                             rel="noreferrer">
-                                            <p className="resume-item-organisation resume-item-last">{item.organisation}</p>
-                                        </a>
-                                        :
-                                        <p className="resume-item-organisation resume-item-last">{item.organisation}</p>
-                                }
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            )
-        })
+
+    function buildKey(name, index = '') {
+        let mobile = props.isMobile === true ? 'mobile' : 'desktop'
+        return [props.kkey, name, mobile, index].join('-')
     }
 
     return (
-        <div className="resume-item" key={props.kkey + '-item-chrono'}>
-            <table key={props.kkey + '-item-chrono-table'}>
+        <div className="resume-item" key={buildKey('item-chrono')}>
+            <table key={buildKey('item-chrono-table')}>
                 <tbody>
                 {
                     props.items.map(function (item, index) {
                         return (
                             <>
-                                <tr key={props.kkey + index + '-item-chrono-table-tr1'}>
+                                <tr key={buildKey('-item-chrono-table-tr1', index)}>
                                     <td className="resume-item-period-field"><p
                                         className="resume-item-period">{item.period}</p></td>
-                                    <td><p className="resume-item-title" itemProp="title">{item.title}</p></td>
+                                    <td><p className="resume-chrono-item-title" itemProp="title">{item.title}</p></td>
                                 </tr>
-                                <tr key={props.kkey + index + '-item-chrono-table-tr2'}>
+                                <tr key={buildKey('-item-chrono-table-tr2', index)}>
                                     <td></td>
                                     <td>
                                         {
@@ -59,11 +31,19 @@ function ChronologicalItems(props) {
                                                    href={item.orglink}
                                                    target="_blank"
                                                    rel="noreferrer">
-                                                    <p className="resume-item-organisation resume-item-last">{item.organisation}</p>
+                                                    <p className="resume-item-organisation">{item.organisation}</p>
                                                 </a>
                                                 :
-                                                <p className="resume-item-organisation resume-item-last">{item.organisation}</p>
+                                                <p className="resume-item-organisation">{item.organisation}</p>
                                         }
+                                    </td>
+                                </tr>
+                                <tr key={buildKey('-item-chrono-table-tr3', index)}>
+                                    <td></td>
+                                    <td className='resume-chrono-item-last no-print'>
+                                        {item.hasOwnProperty('docs') ?
+                                            <Files kkey={buildKey('item-chrono', index)}
+                                                   files={item.docs}/> : null}
                                     </td>
                                 </tr>
                             </>

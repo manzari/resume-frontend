@@ -50,10 +50,8 @@ function Resume(props) {
                 'github': content.person.social.github,
                 'stackexchange': content.person.social.stackexchange,
                 'maplink': content.person.contact.maplink,
-                'tel': content.person.contact.tel,
-                //  'website': content.person.social.website,
-                //  'pdf': content.pdf,
-            }}
+                'tel': content.person.contact.tel
+        }}
             toggleAdminPanel={props.toggleAdminPanel}
         />)
     }
@@ -63,7 +61,12 @@ function Resume(props) {
         if (!content.hasOwnProperty('footer')) {
             return;
         }
-        return (<Footer>{content.footer.map((line) => line)}</Footer>)
+        return (<Footer print={{
+            'github': content.person.social.github,
+            'stackexchange': content.person.social.stackexchange,
+            'address': content.person.contact.address,
+            'tel': content.person.contact.tel
+        }}>{content.footer.map((line) => line)}</Footer>)
     }
 
     function getSections() {
@@ -77,7 +80,7 @@ function Resume(props) {
                 || !section.hasOwnProperty('title')
                 || !section.hasOwnProperty('order')
             ) {
-                return
+                return <></>
             }
             section.items.sort((a, b) => a.order - b.order);
             switch (section.type) {
@@ -97,7 +100,7 @@ function Resume(props) {
                                             isMobile={isMobile}/>
                     </Section>
                 default:
-                    return
+                    return <></>
             }
         })
 

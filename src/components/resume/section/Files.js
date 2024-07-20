@@ -1,7 +1,7 @@
 import React from 'react';
 import {getEnv} from "../../getEnv";
 import {useAuthContext} from "../../useAuth";
-import {FaFile} from "react-icons/fa";
+import {FaRegFileAlt} from "react-icons/fa";
 
 function Files(props) {
     const {token} = useAuthContext();
@@ -41,7 +41,7 @@ function Files(props) {
                     onClick={() => openFile(file.file)}
                     key={props.kkey + 'files-' + index}
                     className={'resume-item-file'}
-                ><FaFile /> {file.title}</p>
+                ><FaRegFileAlt/> {file.title}</p>
             })}
         </div>
     );

@@ -29,7 +29,7 @@ function Header(props) {
         if (getRole() === 'ADMIN') {
             iconList.push(
                 <li className="icon-link-item" key={'icon-admin'}>
-                    <a onClick={props.toggleAdminPanel} className="icon-link">
+                    <a href="#" onClick={props.toggleAdminPanel} className="icon-link">
                         <FaTools/>
                     </a>
                 </li>
@@ -54,13 +54,14 @@ function Header(props) {
             <h1 className="header-name">{props.fullName}</h1>
             <div className="title-bar no-print">
                 <h2 className="header-title">{props.jobTitle}</h2>
-                <ul className="icon-links">
+                <ul className="icon-links no-print">
                     {getIcons(props.icons ?? []).map(icon => icon)}
                 </ul>
             </div>
             <div className="executive-summary" itemProp="description">
                 <p>{props.summary}</p>
             </div>
+            <p className="header-contact-info print-only">{props.email}</p>
             <a href={"mailto:" + props.email} className="contact-button no-print" itemProp="email">Contact me</a>
         </header>
     )

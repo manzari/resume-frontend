@@ -15,7 +15,7 @@ function FilesTable(props) {
             }
         }).then(() => props.fetchFiles())
 
-    }, [token]);
+    }, [token, props]);
 
     const data = useMemo(() => props.files.map(
         (file) => {
@@ -23,7 +23,7 @@ function FilesTable(props) {
                 filename: file,
                 actions: (<FaTrash onClick={() => deleteFile(file)}/>)
             }
-        }), [props.users, deleteFile]);
+        }), [props.files, deleteFile]);
     const columns = useMemo(() => [
         {Header: 'Filename', accessor: 'filename'},
         {Header: 'Actions', accessor: 'actions'}
