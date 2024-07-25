@@ -21,8 +21,8 @@ function Files(props) {
 
             const blob = await response.blob();
 
+            const url = URL.createObjectURL(new Blob([blob], { type: 'application/pdf' }));
             const a = document.createElement('a');
-            const url = window.URL.createObjectURL(blob)
             a.href = url
             a.download = filename;
             a.target = '_blank';
