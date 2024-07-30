@@ -3,7 +3,7 @@ This is a React frontend for my [resume backend](https://github.com/manzari/resu
 
 ## Develop
 ```bash
-docker-compose -f docker-compose.dev.yml up
+docker compose -f docker-compose.dev.yml up
 ```
 
 ## Deploy
