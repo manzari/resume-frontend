@@ -46,6 +46,7 @@ function Resume(props) {
             jobTitle={content.person.jobTitle}
             summary={content.person.summary ?? ''}
             email={content.person.contact.email ?? ''}
+            resumeLink={content.person.contact.resumeLink ?? ''}
             icons={{
                 'github': content.person.social.github,
                 'stackexchange': content.person.social.stackexchange,
@@ -65,7 +66,8 @@ function Resume(props) {
             'github': content.person.social.github,
             'stackexchange': content.person.social.stackexchange,
             'address': content.person.contact.address,
-            'tel': content.person.contact.tel
+            'tel': content.person.contact.tel,
+            'email': content.person.contact.email
         }}>{content.footer.map((line) => line)}</Footer>)
     }
 

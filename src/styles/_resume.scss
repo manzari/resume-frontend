@@ -244,4 +244,15 @@
       color: $darkgray;
     }
   }
+
+  .footer-heading {
+    margin: 0;
+    font-size: .9rem;
+    color: $darkgray;
+
+    > a {
+      font-weight: 700;
+      color: $darkgray;
+    }
+  }
 }

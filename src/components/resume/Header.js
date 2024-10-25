@@ -48,6 +48,14 @@ function Header(props) {
         )
     }
 
+    function getPrintText() {
+        if (props.resumeLink !== '') {
+            return <p className="header-contact-info print-only">View this page online: {props.resumeLink}</p>
+        }
+        return <p className="header-contact-info print-only">Contact me: {props.email}</p>
+
+    }
+
     return (
         <header className="page-header">
             <FetchImg className='avatar' filename={'avatar.png'}/>
@@ -61,7 +69,7 @@ function Header(props) {
             <div className="executive-summary" itemProp="description">
                 <p>{props.summary}</p>
             </div>
-            <p className="header-contact-info print-only">{props.email}</p>
+            {getPrintText()}
             <a href={"mailto:" + props.email} className="contact-button no-print" itemProp="email">Contact me</a>
         </header>
     )
