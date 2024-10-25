@@ -50,9 +50,12 @@ function Header(props) {
 
     function getPrintText() {
         if (props.resumeLink !== '') {
-            return <p className="header-contact-info print-only">View this page online: {props.resumeLink}</p>
+            return <>
+                <p className="header-contact-info-label print-only">View this page online:</p>
+                <p className="header-contact-info-link print-only">{props.resumeLink}</p>
+            </>
         }
-        return <p className="header-contact-info print-only">Contact me: {props.email}</p>
+        return <p className="header-contact-info print-only">{props.email}</p>
 
     }
 
