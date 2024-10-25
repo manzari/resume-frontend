@@ -62,7 +62,7 @@ function Footer(props) {
     return (
         <>
             <footer className="page-footer print-only">
-                    {getPrintFooter()}
+                {getPrintFooter()}
             </footer>
             <footer className="page-footer no-print">
                 {getWebFooter(props)}

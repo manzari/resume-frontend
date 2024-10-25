@@ -52,7 +52,7 @@ function Resume(props) {
                 'stackexchange': content.person.social.stackexchange,
                 'maplink': content.person.contact.maplink,
                 'tel': content.person.contact.tel
-        }}
+            }}
             toggleAdminPanel={props.toggleAdminPanel}
         />)
     }
